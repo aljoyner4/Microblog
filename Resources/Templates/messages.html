@@ -1,0 +1,17 @@
+public class Main {
+static User user;
+
+public static void main(String[] args) {
+...
+
+Spark.post(
+"/create user",
+((request, response) -> {
+String name = request.queryParams("user");
+user = new User(name);
+response.redirect("/");
+return "";
+})
+);
+}
+}
